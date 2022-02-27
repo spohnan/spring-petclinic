@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+  build:
+    commands:
+      - ./mvnw package
+
+artifacts:
+  files:
+    - appspec.yml
+    - 'scripts/**/*'
+    - 'target/*.jar'
+  discard-paths: no
+
+cache:
+  paths:
+    - '/root/.m2/**/*'
